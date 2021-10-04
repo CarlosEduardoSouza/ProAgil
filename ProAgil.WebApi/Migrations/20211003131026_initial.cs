@@ -2,7 +2,7 @@
 
 namespace ProAgil.WebApi.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,6 +15,7 @@ namespace ProAgil.WebApi.Migrations
                     Local = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataEvento = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tema = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    imagemUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     QtdPessoas = table.Column<int>(type: "int", nullable: false),
                     Lote = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

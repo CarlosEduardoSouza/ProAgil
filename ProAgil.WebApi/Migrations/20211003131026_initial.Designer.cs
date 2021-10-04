@@ -9,8 +9,8 @@ using ProAgil.WebApi.Data;
 namespace ProAgil.WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210922235848_Initial")]
-    partial class Initial
+    [Migration("20211003131026_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,9 @@ namespace ProAgil.WebApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Tema")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("imagemUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EventoId");

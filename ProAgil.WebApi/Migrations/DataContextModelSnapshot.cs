@@ -40,6 +40,9 @@ namespace ProAgil.WebApi.Migrations
                     b.Property<string>("Tema")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("imagemUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("EventoId");
 
                     b.ToTable("Eventos");

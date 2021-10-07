@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ProAgil.WebApi.Data;
+using ProAgil.Repository;
 
 namespace ProAgil.WebApi
 {
@@ -29,7 +29,7 @@ namespace ProAgil.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(
+            services.AddDbContext<ProAgilContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
             );
             services.AddSwaggerGen(c =>

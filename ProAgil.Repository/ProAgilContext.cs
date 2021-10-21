@@ -22,5 +22,4 @@ namespace ProAgil.Repository
           .HasKey(PE => new { PE.EventoId, PE.PalestranteId});
       }
     }
-   
 }

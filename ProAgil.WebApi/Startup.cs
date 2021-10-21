@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
-using ProAgil.Repository;
+using ProAgil.Repository;using ProAgil.Repository;
 
 namespace ProAgil.WebApi
 {

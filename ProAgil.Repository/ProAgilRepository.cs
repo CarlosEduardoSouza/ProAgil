@@ -5,7 +5,7 @@ using ProAgil.Domain;
 
 namespace ProAgil.Repository
 {
-    public class ProAgilRepository : IProAgilRepository
+   public class ProAgilRepository : IProAgilRepository
     {
         private readonly ProAgilContext _context;
         public ProAgilRepository(ProAgilContext contex)
@@ -123,4 +123,4 @@ namespace ProAgil.Repository
         }
 
     }
-} 
+}

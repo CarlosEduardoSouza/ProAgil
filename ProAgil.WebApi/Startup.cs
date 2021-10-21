@@ -13,7 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
-using ProAgil.Repository;using ProAgil.Repository;
+using ProAgil.Repository;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProAgil.WebApi
 {
@@ -30,10 +31,11 @@ namespace ProAgil.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddControllers();
-            services.AddDbContext<ProAgilContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
-            );
+            // services.AddDbContext<ProAgilContext>(
+            //     options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
+            // );
 
+        
             // services.AddControllers().AddJsonOptions(x =>
             // x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 

@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 using ProAgil.Repository;
 
 namespace ProAgil.WebApi
@@ -28,10 +29,15 @@ namespace ProAgil.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            //services.AddControllers();
             services.AddDbContext<ProAgilContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
             );
+
+            // services.AddControllers().AddJsonOptions(x =>
+            // x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+            services.AddScoped<IProAgilRepository, ProAgilRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProAgil.WebApi", Version = "v1" });

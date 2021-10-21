@@ -1,13 +1,11 @@
-
 using Microsoft.EntityFrameworkCore;
 using ProAgil.Domain;
-using System;
 
 namespace ProAgil.Repository
 {
     public class ProAgilContext : DbContext
     {
-
+        
       public ProAgilContext(DbContextOptions<ProAgilContext> options): base(options)
       {
           
@@ -21,7 +19,8 @@ namespace ProAgil.Repository
       
       protected override void OnModelCreating(ModelBuilder modelBuilder){
           modelBuilder.Entity<PalestranteEvento>()
-          .HasKey(PE => new { PE.Evento, PE.PalestranteId});
+          .HasKey(PE => new { PE.EventoId, PE.PalestranteId});
       }
     }
+   
 }

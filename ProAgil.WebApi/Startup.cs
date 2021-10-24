@@ -16,6 +16,7 @@ using System.Text.Json.Serialization;
 using ProAgil.Repository;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace ProAgil.WebApi
 {
     public class Startup
@@ -30,21 +31,21 @@ namespace ProAgil.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllers();
-            // services.AddDbContext<ProAgilContext>(
-            //     options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
-            // );
+            
+            services.AddDbContext<ProAgilContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
+            );
 
-        
-            // services.AddControllers().AddJsonOptions(x =>
-            // x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
-
+            services.AddControllers();
             services.AddScoped<IProAgilRepository, ProAgilRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProAgil.WebApi", Version = "v1" });
             });
+            
             services.AddCors();
+
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +58,7 @@ namespace ProAgil.WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProAgil.WebApi v1"));
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseStaticFiles();
 

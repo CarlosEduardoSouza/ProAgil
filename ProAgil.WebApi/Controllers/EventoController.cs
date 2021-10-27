@@ -30,9 +30,11 @@ namespace ProAgil.WebApi.Controllers
                 // string tipo = JsonConvert.SerializeObject(results);
                 // return Ok(tipo);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {            
-              return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+              //return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+
+                throw new System.Exception(ex.Message);
             }
         }
 
@@ -56,9 +58,7 @@ namespace ProAgil.WebApi.Controllers
             try
             {
                 var results = await _repo.GetAllEventosAsyncByTema(tema, true);
-                return Ok(results);
-
-              
+                return Ok(results);              
             }
             catch (System.Exception)
             {            

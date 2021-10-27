@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace ProAgil.Domain
 {
@@ -11,6 +12,6 @@ namespace ProAgil.Domain
         public DateTime? DataFim { get; set; }
         public int quantidade { get; set; }
         public int EventoId { get; set; }
-        public Evento Evento { get; set;}
+        public Evento Evento { get; }
     }
 }

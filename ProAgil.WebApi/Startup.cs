@@ -36,6 +36,11 @@ namespace ProAgil.WebApi
                 options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDefault"))
             );
 
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             services.AddControllers();
             services.AddScoped<IProAgilRepository, ProAgilRepository>();
             services.AddSwaggerGen(c =>

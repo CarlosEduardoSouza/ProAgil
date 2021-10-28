@@ -32,9 +32,11 @@ namespace ProAgil.WebApi.Controllers
                 // string tipo = JsonConvert.SerializeObject(results);
                 // return Ok(tipo);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {            
-             return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            // return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+
+            throw new Exception(ex.Message);
 
             }
         }

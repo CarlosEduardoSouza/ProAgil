@@ -1,8 +1,10 @@
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 using ProAgil.Domain;
 using ProAgil.Repository;
 
@@ -12,7 +14,7 @@ namespace ProAgil.WebApi.Controllers
     [ApiController]
     public class EventoController : ControllerBase
     {
-        private readonly IProAgilRepository _repo;
+    private readonly IProAgilRepository _repo;
 
         public EventoController(IProAgilRepository repo)
         {
@@ -30,11 +32,10 @@ namespace ProAgil.WebApi.Controllers
                 // string tipo = JsonConvert.SerializeObject(results);
                 // return Ok(tipo);
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {            
-              //return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+             return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
 
-                throw new System.Exception(ex.Message);
             }
         }
 
@@ -130,6 +131,4 @@ namespace ProAgil.WebApi.Controllers
         }
 
     }
-
- 
 }
